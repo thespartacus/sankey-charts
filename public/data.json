@@ -1,0 +1,24 @@
+{
+  "nodes": [
+    { "id": "salary", "label": "Salary" },
+    { "id": "business", "label": "Business" },
+    { "id": "bills", "label": "Bills" },
+    { "id": "spends", "label": "Spends" },
+    { "id": "electircityBill", "label": "Electricity Bill" },
+    { "id": "mobileBill", "label": "Mobile Bill" },
+    { "id": "grocery", "label": "Grocery" },
+    { "id": "shopping", "label": "Shopping" },
+    { "id": "businessBills", "label": "Business Bills" },
+    { "id": "businessSpends", "label": "Business Spends" }
+  ],
+  "links": [
+    { "source": "salary", "target": "bills", "value": 3000 },
+    { "source": "salary", "target": "spends", "value": 2000 },
+    { "source": "business", "target": "businessBills", "value": 10000 },
+    { "source": "business", "target": "businessSpends", "value": 5000 },
+    { "source": "bills", "target": "electircityBill", "value": 1000 },
+    { "source": "bills", "target": "mobileBill", "value": 2000 },
+    { "source": "spends", "target": "grocery", "value": 1000 },
+    { "source": "spends", "target": "shopping", "value": 1000 }
+  ]
+}

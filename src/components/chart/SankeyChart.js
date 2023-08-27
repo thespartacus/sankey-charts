@@ -1,9 +1,26 @@
+import { useEffect } from 'react';
+import { connect } from "react-redux";
 import { Sankey, SankeyNode, SankeyLink, SankeyLabel } from 'reaviz';
-import sankeyData from '../../data/data.json';
+
+import { fetchSankeyData } from "../../store/fetchData";
 
 import './sankeyChart.css';
 
 const SankeyChart = (props) => {
+  const updateData = data => {
+    console.log("Fetched Data: ", data);
+  }
+
+  useEffect(() => {
+    props.dispatch(fetchSankeyData());
+  }, []);
+
+  useEffect(() => {
+    console.log("Sankey Data: ", props.sankeyData);
+  }, [props.sankeyData]);
+
+  // fetchedData(updateData);
+
   const sankeyNodes = sankeyData.nodes;
   const sankeyLinks = sankeyData.links;
 
@@ -34,4 +51,8 @@ const SankeyChart = (props) => {
   )
 }
 
-export default SankeyChart;
+const mapStateToProps = state => ({
+  sankeyData: state.sankey.sankeyData
+})
+
+export default connect(mapStateToProps)(SankeyChart);
